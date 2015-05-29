@@ -27,6 +27,11 @@ typedef struct
     RK_U32   ImgHeight;      //非16X必须，从文件中解析
 }VPU_GENERIC;
 
+typedef enum DEC_TYPE_T {
+   HW,
+   SW,
+}DEC_TYPE;
+
 typedef struct
 {
     RK_U32      StartCode;
@@ -74,5 +79,17 @@ typedef struct tVPU_FRAME
     struct tVPU_FRAME *    next_frame;
     RK_U32          Res[4];
 }VPU_FRAME;
+
+typedef enum VPU_API_CMD
+{
+   VPU_API_ENC_SETCFG,
+   VPU_API_ENC_GETCFG,
+   VPU_API_ENC_SETFORMAT,
+   VPU_API_ENC_SETIDRFRAME,
+   VPU_API_ENABLE_DEINTERLACE,
+   VPU_API_SET_VPUMEM_CONTEXT,
+   VPU_API_USE_PRESENT_TIME_ORDER,
+}VPU_API_CMD;
+
 
 #endif /*_VPU_GLOBAL_*/
